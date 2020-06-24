@@ -16,7 +16,6 @@ public class Player : MonoBehaviour, Damageable
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
-        Debug.Log(transform.root.tag);
     }
 
     private void Update()

@@ -10,7 +10,6 @@ public class Bullet : MonoBehaviour
     private void Start()
     {
         DetectHit();
-        Debug.Log(transform.root.tag);
     }
 
     private void FixedUpdate()
@@ -24,7 +23,6 @@ public class Bullet : MonoBehaviour
         if (IsNextFrameHit(out RaycastHit hitinfo))
         {
             Damageable damageable = hitinfo.collider.GetComponent<Damageable>();
-            Debug.Log(hitinfo.collider.tag, this);
             if (damageable != null && !hitinfo.collider.CompareTag(transform.root.tag))
             {
                 damageable.TakeDame(damage);
