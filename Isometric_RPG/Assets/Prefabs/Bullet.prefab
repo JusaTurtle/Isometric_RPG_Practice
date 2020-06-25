@@ -108,3 +108,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   damage: 1
+  whatCanBeHit:
+    serializedVersion: 2
+    m_Bits: 4294967295
