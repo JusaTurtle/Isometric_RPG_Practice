@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 {
     public float speed;
     public float damage;
+    public LayerMask whatCanBeHit;
 
     private void Start()
     {
@@ -37,6 +38,6 @@ public class Bullet : MonoBehaviour
 
     private bool IsNextFrameHit(out RaycastHit hitinfo)
     {
-        return Physics.Raycast(transform.position, transform.forward, out hitinfo, speed * Time.fixedDeltaTime);
+        return Physics.Raycast(transform.position, transform.forward, out hitinfo, speed * Time.fixedDeltaTime, whatCanBeHit, QueryTriggerInteraction.Ignore);
     }
 }

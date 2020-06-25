@@ -6,45 +6,30 @@ public class Gun : MonoBehaviour
 {
     public KeyCode basic;
     public float attackSpeed;
+    public float delay;
     public List<GameObject> attackType;
-    private string buffer;
-    private float timer;
-
-    private void Start()
-    {
-        buffer = "";
-    }
+    private int attackNumber;
+    private float attackTimer;
+    private float delayTimer;
 
     private void Update()
     {
         char current = GetAction();
-        if (current != ' ' && buffer.Length <= 2)
+        if (current == 'b')
         {
-            buffer += current;
-            timer = 1 / attackSpeed;
+            delayTimer = delay;
+            if (attackTimer <= 0)
+            {
+                attackNumber %= attackType.Count;
+                PerformAttack(attackNumber++);
+                attackTimer = 1 / attackSpeed;
+            }
         }
-        Debug.Log(buffer, this);
-
-        if (timer < 0)
+        else if (delayTimer <= 0)
         {
-            if (buffer == "bbb")
-            {
-                PerformAttack(2);
-            }
-            else if (buffer == "bb")
-            {
-                PerformAttack(1);
-            }
-            else if (buffer == "b")
-            {
-                PerformAttack(0);
-            }
-            buffer = "";
+            attackNumber = 0;
         }
-        else
-        {
-            Tick();
-        }
+        Tick();
     }
 
     private void PerformAttack(int attackNumber)
@@ -58,12 +43,13 @@ public class Gun : MonoBehaviour
 
     private void Tick()
     {
-        timer -= Time.deltaTime;
+        attackTimer -= Time.deltaTime;
+        delayTimer -= Time.deltaTime;
     }
 
     private char GetAction()
     {
-        if (Input.GetKeyDown(basic)) return 'b';
+        if (Input.GetKey(basic)) return 'b';
         return ' ';
     }
 
