@@ -8,13 +8,14 @@ public class Player : Actor
     public LayerMask whatIsGround;
     private Camera cam;
 
-    private void Start() {
+    private void Start()
+    {
         cam = Camera.main;
     }
 
     public override Vector2 GetMoveDir()
     {
-        if(Input.GetMouseButton(0) || Input.GetMouseButton(1)) return Vector2.zero;
+        if (Input.GetMouseButton(0) || Input.GetMouseButton(1)) return Vector2.zero;
         return new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
     }
 
@@ -35,5 +36,10 @@ public class Player : Actor
         {
             return GetMoveDir();
         }
+    }
+    protected override float Turn(float target)
+    {
+        if (Input.GetMouseButton(0) || Input.GetMouseButton(1)) return target;
+        else return base.Turn(target);
     }
 }

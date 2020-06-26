@@ -28,9 +28,14 @@ public abstract class Actor : MonoBehaviour, Damageable
         if (inputRot != Vector2.zero)
         {
             float target = CalculateFaceAngle(inputRot);
-            faceAngle = Mathf.SmoothDampAngle(transform.eulerAngles.y, target, ref turnSmoothVelocity, turnSmoothTime);
+            faceAngle = Turn(target);
             transform.eulerAngles = new Vector3(0, faceAngle, 0);
         }
+    }
+
+    protected virtual float Turn(float target)
+    {
+        return Mathf.SmoothDampAngle(transform.eulerAngles.y, target, ref turnSmoothVelocity, turnSmoothTime);
     }
 
     private float CalculateFaceAngle(Vector2 inputRot)

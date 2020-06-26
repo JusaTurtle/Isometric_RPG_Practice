@@ -25,15 +25,12 @@ public class Gun : MonoBehaviour
                 PerformAttack(attackNumber++);
                 attackTimer = 1 / attackSpeed;
             }
-            else
-            {
-                Tick();
-            }
         }
         else if (delayTimer <= 0)
         {
             attackNumber = 0;
         }
+        Tick();
     }
 
     private void PerformAttack(int attackNumber)
