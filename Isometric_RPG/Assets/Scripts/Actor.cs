@@ -9,7 +9,7 @@ public abstract class Actor : MonoBehaviour, Damageable
     public float turnSmoothTime;
     public float health;
     private float fallSpeed;
-    public CharacterController controller;
+    private CharacterController controller;
     private float faceAngle;
     private float turnSmoothVelocity;
 

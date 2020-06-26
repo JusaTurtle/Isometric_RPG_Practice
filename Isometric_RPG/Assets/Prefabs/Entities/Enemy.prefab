@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: fd844aba78d7097449c01147f3546938, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -145,8 +145,6 @@ MonoBehaviour:
   speed: 5
   gravity: 9.8
   turnSmoothTime: 0.1
-  health: 10
-  whatCanAttack:
-    serializedVersion: 2
-    m_Bits: 0
-  range: 0
+  health: 5
+  range: 5
+  sqrAttackRange: 2

@@ -6,6 +6,7 @@ using System.Linq;
 public class Enemy : Actor
 {
     public float range;
+    public float sqrAttackRange;
 
     public override void Die()
     {
@@ -19,7 +20,10 @@ public class Enemy : Actor
                                where target.CompareTag("Player")
                                select target)
         {
-            return new Vector2(target.transform.position.x - transform.position.x, target.transform.position.z - transform.position.z).normalized;
+            Vector2 deltaPos = new Vector2(target.transform.position.x - transform.position.x, target.transform.position.z - transform.position.z);
+            if (deltaPos.sqrMagnitude >= sqrAttackRange)
+                return deltaPos.normalized;
+            return Vector2.zero;
         }
 
         return Vector2.zero;
