@@ -5,6 +5,7 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
     public KeyCode basic;
+    public KeyCode special;
     public float attackSpeed;
     public float delay;
     public List<GameObject> attackType;
@@ -24,12 +25,15 @@ public class Gun : MonoBehaviour
                 PerformAttack(attackNumber++);
                 attackTimer = 1 / attackSpeed;
             }
+            else
+            {
+                Tick();
+            }
         }
         else if (delayTimer <= 0)
         {
             attackNumber = 0;
         }
-        Tick();
     }
 
     private void PerformAttack(int attackNumber)
@@ -50,11 +54,7 @@ public class Gun : MonoBehaviour
     private char GetAction()
     {
         if (Input.GetKey(basic)) return 'b';
+        if (Input.GetKey(special)) return 's';
         return ' ';
-    }
-
-    private enum Action
-    {
-        None, Basic
     }
 }

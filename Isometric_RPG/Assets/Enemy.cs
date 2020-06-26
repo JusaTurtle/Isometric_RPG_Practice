@@ -12,7 +12,7 @@ public class Enemy : Actor
         Destroy(gameObject);
     }
 
-    public override Vector2 GetInput()
+    public override Vector2 GetMoveDir()
     {
         var targets = Physics.OverlapSphere(transform.position, range);
         foreach (var target in from Collider target in targets
@@ -23,5 +23,10 @@ public class Enemy : Actor
         }
 
         return Vector2.zero;
+    }
+
+    protected override Vector2 GetRotDir()
+    {
+        return GetMoveDir();
     }
 }

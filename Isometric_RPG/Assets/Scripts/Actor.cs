@@ -9,7 +9,7 @@ public abstract class Actor : MonoBehaviour, Damageable
     public float turnSmoothTime;
     public float health;
     private float fallSpeed;
-    private CharacterController controller;
+    public CharacterController controller;
     private float faceAngle;
     private float turnSmoothVelocity;
 
@@ -20,22 +20,27 @@ public abstract class Actor : MonoBehaviour, Damageable
 
     private void Update()
     {
-        Vector2 inputDir = GetInput();
+        Vector2 inputDir = GetMoveDir();
         fallSpeed = controller.isGrounded ? 0 : fallSpeed + (gravity * Time.deltaTime);
         controller.Move(GetVelocity(inputDir, fallSpeed) * Time.deltaTime);
 
-        if (inputDir != Vector2.zero)
+        Vector2 inputRot = GetRotDir();
+        if (inputRot != Vector2.zero)
         {
-            float target = Mathf.Atan2(inputDir.x, inputDir.y) * Mathf.Rad2Deg;
+            float target = CalculateFaceAngle(inputRot);
             faceAngle = Mathf.SmoothDampAngle(transform.eulerAngles.y, target, ref turnSmoothVelocity, turnSmoothTime);
             transform.eulerAngles = new Vector3(0, faceAngle, 0);
         }
+    }
 
+    private float CalculateFaceAngle(Vector2 inputRot)
+    {
+        return Mathf.Atan2(inputRot.x, inputRot.y) * Mathf.Rad2Deg;
     }
 
     private Vector3 GetVelocity(Vector2 inputDir, float fallSpeed)
     {
-        return CalculateOnGroundVelocity(inputDir) + CalculateFallVelocity(fallSpeed);
+        return CalculateOnGroundVelocity(inputDir.normalized) + CalculateFallVelocity(fallSpeed);
     }
 
     private Vector3 CalculateFallVelocity(float fallSpeed)
@@ -56,7 +61,7 @@ public abstract class Actor : MonoBehaviour, Damageable
             Die();
     }
 
-    public abstract Vector2 GetInput();
-
+    protected abstract Vector2 GetRotDir();
+    public abstract Vector2 GetMoveDir();
     public abstract void Die();
 }
