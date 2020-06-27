@@ -38,6 +38,6 @@ public class Bullet : MonoBehaviour
 
     private bool IsNextFrameHit(out RaycastHit hitinfo)
     {
-        return Physics.Raycast(transform.position, transform.forward, out hitinfo, speed * Time.fixedDeltaTime, whatCanBeHit, QueryTriggerInteraction.Ignore);
+        return Physics.Raycast(transform.position, transform.forward, out hitinfo, speed * Time.deltaTime, whatCanBeHit, QueryTriggerInteraction.Ignore);
     }
 }

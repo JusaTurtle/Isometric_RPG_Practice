@@ -13,7 +13,7 @@ public class Gun : MonoBehaviour
     private float attackTimer;
     private float delayTimer;
 
-    private void Update()
+    private void LateUpdate()
     {
         char current = GetAction();
         if (current == 'b')
@@ -33,7 +33,7 @@ public class Gun : MonoBehaviour
         Tick();
     }
 
-    private void PerformAttack(int attackNumber)
+    public void PerformAttack(int attackNumber)
     {
         if (attackNumber < attackType.Count)
         {
