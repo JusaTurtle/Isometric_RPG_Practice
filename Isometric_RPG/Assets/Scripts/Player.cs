@@ -7,10 +7,18 @@ public class Player : Actor
     public float maxDistance;
     public LayerMask whatIsGround;
     private Camera cam;
+    public Gun weapon;
+    public KeyCode basic;
+    public KeyCode special;
 
     private void Start()
     {
         cam = Camera.main;
+    }
+
+    private void Update() {
+        base.Update();
+        weapon.Attack(GetAction());
     }
 
     public override Vector2 GetMoveDir()
@@ -41,5 +49,12 @@ public class Player : Actor
     {
         if (Input.GetMouseButton(0) || Input.GetMouseButton(1)) return target;
         else return base.Turn(target);
+    }
+
+    private char GetAction()
+    {
+        if (Input.GetKey(basic)) return 'b';
+        if (Input.GetKey(special)) return 's';
+        return ' ';
     }
 }

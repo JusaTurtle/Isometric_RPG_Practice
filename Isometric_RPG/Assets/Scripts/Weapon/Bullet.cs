@@ -29,10 +29,6 @@ public class Bullet : MonoBehaviour
                 damageable.TakeDame(damage);
                 Destroy(gameObject);
             }
-            else if (hitinfo.collider?.CompareTag(transform.root.tag) == false)
-            {
-                Destroy(gameObject);
-            }
         }
     }
 

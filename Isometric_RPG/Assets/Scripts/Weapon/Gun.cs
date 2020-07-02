@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    public KeyCode basic;
-    public KeyCode special;
     public float attackSpeed;
     public float delay;
     public List<GameObject> attackType;
@@ -13,9 +11,12 @@ public class Gun : MonoBehaviour
     private float attackTimer;
     private float delayTimer;
 
-    private void Update()
+    private void Update() {
+        Tick();
+    }
+
+    public void Attack(char current)
     {
-        char current = GetAction();
         if (current == 'b')
         {
             delayTimer = delay;
@@ -30,7 +31,6 @@ public class Gun : MonoBehaviour
         {
             attackNumber = 0;
         }
-        Tick();
     }
 
     private void PerformAttack(int attackNumber)
@@ -46,12 +46,5 @@ public class Gun : MonoBehaviour
     {
         attackTimer -= Time.deltaTime;
         delayTimer -= Time.deltaTime;
-    }
-
-    private char GetAction()
-    {
-        if (Input.GetKey(basic)) return 'b';
-        if (Input.GetKey(special)) return 's';
-        return ' ';
     }
 }

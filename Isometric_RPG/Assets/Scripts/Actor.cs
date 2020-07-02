@@ -18,7 +18,7 @@ public abstract class Actor : MonoBehaviour, Damageable
         controller = GetComponent<CharacterController>();
     }
 
-    private void Update()
+    public void Update()
     {
         Vector2 inputDir = GetMoveDir();
         fallSpeed = controller.isGrounded ? 0 : fallSpeed + (gravity * Time.deltaTime);

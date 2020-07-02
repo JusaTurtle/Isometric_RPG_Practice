@@ -43,8 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b26e74cb8ce0d3944848c187c3015544, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basic: 106
   attackSpeed: 5
+  delay: 0.3
   attackType:
   - {fileID: 1241275224829175817, guid: 5699431beedfb4048911cd88a2594570, type: 3}
   - {fileID: 1241275224829175817, guid: 1401973aa7388c44db98bf25ae5195b3, type: 3}
@@ -193,9 +193,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  gravity: 9
+  gravity: 9.8
   turnSmoothTime: 0.1
   health: 10
+  maxDistance: 100
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 256
+  weapon: {fileID: 670717733}
+  basic: 323
+  special: 324
 --- !u!1 &1622369485904690355
 GameObject:
   m_ObjectHideFlags: 0
