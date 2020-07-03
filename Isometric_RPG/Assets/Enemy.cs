@@ -5,19 +5,9 @@ using System.Linq;
 
 public class Enemy : Actor
 {
-    public float range;
     public Gun weapon;
     public float sqrAttackRange;
     private Transform target;
-
-    private void Update()
-    {
-        base.Update();
-        if (target != null)
-        {
-            weapon.Attack('b');
-        }
-    }
 
     public override void Die()
     {
@@ -26,12 +16,8 @@ public class Enemy : Actor
 
     public override Vector2 GetMoveDir()
     {
-        var targets = Physics.OverlapSphere(transform.position, range);
-        foreach (var target in from Collider target in targets
-                               where target.CompareTag("Player")
-                               select target)
+        if(target != null)
         {
-            this.target = target.transform;
             Vector2 deltaPos = new Vector2(target.transform.position.x - transform.position.x, target.transform.position.z - transform.position.z);
             if (deltaPos.sqrMagnitude >= sqrAttackRange)
             {
@@ -40,15 +26,20 @@ public class Enemy : Actor
             else
             {
                 this.target = target.transform;
+                weapon.Attack('b');
                 return Vector2.zero;
             }
         }
-        target = null;
         return Vector2.zero;
     }
 
     protected override Vector2 GetRotDir()
     {
         return GetMoveDir();
+    }
+
+    public void SetTarget(Transform target)
+    {
+        this.target = target;
     }
 }

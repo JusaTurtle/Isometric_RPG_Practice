@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1515515030029296469}
   - component: {fileID: 7821581539715906289}
   - component: {fileID: 2080474093304364847}
-  - component: {fileID: 955064631506575891}
   - component: {fileID: -2960903389864906427}
   m_Layer: 0
   m_Name: Bullet
@@ -81,19 +80,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &955064631506575891
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4456098759985302018}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &-2960903389864906427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,8 +92,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74850de5e373f8a48b15e9c02cac7551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  damage: 1
+  speed: 15
+  dame: 1
   whatCanBeHit:
     serializedVersion: 2
     m_Bits: 4294967295

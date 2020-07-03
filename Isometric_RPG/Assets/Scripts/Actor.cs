@@ -7,7 +7,7 @@ public abstract class Actor : MonoBehaviour, Damageable
     public float speed;
     public float gravity;
     public float turnSmoothTime;
-    public float health;
+    public int health;
     private float fallSpeed;
     private CharacterController controller;
     private float faceAngle;
@@ -58,12 +58,16 @@ public abstract class Actor : MonoBehaviour, Damageable
         return ((inputDir.x * Vector3.right) + (inputDir.y * Vector3.forward)) * speed;
     }
 
-    public void TakeDame(float dame)
+    public void TakeDame(int dame)
     {
-        if (health > 0)
-            health -= dame;
-        else
+        if (health - dame <= 0)
+        {
             Die();
+        }
+        else
+        {
+            health -= dame;
+        }
     }
 
     protected abstract Vector2 GetRotDir();

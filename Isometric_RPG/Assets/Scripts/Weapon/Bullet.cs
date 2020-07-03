@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float speed;
-    public float damage;
+    public int dame;
     public LayerMask whatCanBeHit;
 
     private void Start()
@@ -26,7 +26,7 @@ public class Bullet : MonoBehaviour
             Damageable damageable = hitinfo.collider.GetComponent<Damageable>();
             if (damageable != null && !hitinfo.collider.CompareTag(transform.root.tag))
             {
-                damageable.TakeDame(damage);
+                damageable.TakeDame(dame);
                 Destroy(gameObject);
             }
         }

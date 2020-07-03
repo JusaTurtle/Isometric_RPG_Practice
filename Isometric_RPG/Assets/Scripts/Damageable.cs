@@ -1,4 +1,4 @@
 public interface Damageable
 {
-    void TakeDame(float dame);
+    void TakeDame(int dame);
 }

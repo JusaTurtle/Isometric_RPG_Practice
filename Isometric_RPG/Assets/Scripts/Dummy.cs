@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Dummy : MonoBehaviour, Damageable
 {
-    public void TakeDame(float dame)
+    public void TakeDame(int dame)
     {
     }
 }
