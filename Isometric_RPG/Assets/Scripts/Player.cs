@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,10 +11,13 @@ public class Player : Actor
     public Gun weapon;
     public KeyCode basic;
     public KeyCode special;
+    public int dameDealt;
+    public GameManager mng;
 
     private void Start()
     {
         cam = Camera.main;
+        weapon.SetOwner(this);
     }
 
     private void Update() {
@@ -29,7 +33,7 @@ public class Player : Actor
 
     public override void Die()
     {
-        Debug.Log("You DIE!");
+        mng.GameOver();
     }
 
     protected override Vector2 GetRotDir()
@@ -45,6 +49,12 @@ public class Player : Actor
             return GetMoveDir();
         }
     }
+
+    public void AddDameDealt(int dame)
+    {
+        dameDealt += dame;
+    }
+
     protected override float Turn(float target)
     {
         if (Input.GetMouseButton(0) || Input.GetMouseButton(1)) return target;

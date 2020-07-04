@@ -46,7 +46,7 @@ MonoBehaviour:
   attackSpeed: 1
   delay: 0
   attackType:
-  - {fileID: 1241275224829175817, guid: 5699431beedfb4048911cd88a2594570, type: 3}
+  - {fileID: 3232324641947527176, guid: 5699431beedfb4048911cd88a2594570, type: 3}
 --- !u!1 &6050809315573199713
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,10 +6,11 @@ public class Gun : MonoBehaviour
 {
     public float attackSpeed;
     public float delay;
-    public List<GameObject> attackType;
+    public List<BulletPattern> attackType;
     private int attackNumber;
     private float attackTimer;
     private float delayTimer;
+    private Player owner;
 
     private void Update() {
         Tick();
@@ -37,8 +38,9 @@ public class Gun : MonoBehaviour
     {
         if (attackNumber < attackType.Count)
         {
-            GameObject attack = Instantiate(attackType[attackNumber], transform.position, transform.rotation);
+            BulletPattern attack = Instantiate(attackType[attackNumber], transform.position, transform.rotation);
             attack.tag = transform.root.tag;
+            attack.SetOwner(owner);
         }
     }
 
@@ -46,5 +48,10 @@ public class Gun : MonoBehaviour
     {
         attackTimer -= Time.deltaTime;
         delayTimer -= Time.deltaTime;
+    }
+
+    public void SetOwner(Player owner)
+    {
+        this.owner = owner;
     }
 }

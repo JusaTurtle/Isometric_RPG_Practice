@@ -46,9 +46,9 @@ MonoBehaviour:
   attackSpeed: 10
   delay: 0.3
   attackType:
-  - {fileID: 1241275224829175817, guid: 5699431beedfb4048911cd88a2594570, type: 3}
-  - {fileID: 1241275224829175817, guid: 1401973aa7388c44db98bf25ae5195b3, type: 3}
-  - {fileID: 1241275224829175817, guid: bf1665c51c6578b41b3f9af4308b6316, type: 3}
+  - {fileID: 3232324641947527176, guid: 5699431beedfb4048911cd88a2594570, type: 3}
+  - {fileID: 8083949637410761476, guid: 1401973aa7388c44db98bf25ae5195b3, type: 3}
+  - {fileID: 242226119989157513, guid: bf1665c51c6578b41b3f9af4308b6316, type: 3}
 --- !u!1 &1028584192
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,6 +203,7 @@ MonoBehaviour:
   weapon: {fileID: 670717733}
   basic: 323
   special: 324
+  dameDealt: 0
 --- !u!1 &1622369485904690355
 GameObject:
   m_ObjectHideFlags: 0
