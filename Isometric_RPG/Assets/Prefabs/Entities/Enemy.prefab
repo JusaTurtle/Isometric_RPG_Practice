@@ -195,4 +195,4 @@ MonoBehaviour:
   turnSmoothTime: 0.1
   health: 3
   weapon: {fileID: 82776199234171341}
-  sqrAttackRange: 25
+  sqrAttackRange: 49

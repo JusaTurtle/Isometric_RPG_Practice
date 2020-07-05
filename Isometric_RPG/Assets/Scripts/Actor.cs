@@ -5,7 +5,6 @@ using UnityEngine;
 public abstract class Actor : MonoBehaviour, Damageable
 {
     public float speed;
-    public float gravity;
     public float turnSmoothTime;
     public int health;
     private float fallSpeed;
@@ -21,7 +20,7 @@ public abstract class Actor : MonoBehaviour, Damageable
     public void Update()
     {
         Vector2 inputDir = GetMoveDir();
-        fallSpeed = controller.isGrounded ? 0 : fallSpeed + (gravity * Time.deltaTime);
+        fallSpeed = controller.isGrounded ? 0 : fallSpeed - (Physics.gravity.y * Time.deltaTime);
         controller.Move(GetVelocity(inputDir, fallSpeed) * Time.deltaTime);
 
         Vector2 inputRot = GetRotDir();

@@ -11,8 +11,10 @@ public class Player : Actor
     public Gun weapon;
     public KeyCode basic;
     public KeyCode special;
-    public int dameDealt;
+    private int dameDealt;
     public GameManager mng;
+
+    public int DameDealt { get => dameDealt; set => dameDealt = value; }
 
     private void Start()
     {
@@ -27,7 +29,7 @@ public class Player : Actor
 
     public override Vector2 GetMoveDir()
     {
-        if (Input.GetMouseButton(0) || Input.GetMouseButton(1)) return Vector2.zero;
+        // if (Input.GetMouseButton(0) || Input.GetMouseButton(1)) return Vector2.zero;
         return new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
     }
 
@@ -40,8 +42,9 @@ public class Player : Actor
     {
         if (Input.GetMouseButton(0) || Input.GetMouseButton(1))
         {
-            Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out RaycastHit hitInfo, maxDistance, whatIsGround);
-            Vector3 dir = hitInfo.point - transform.position;
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            new Plane(Vector3.up, transform.position).Raycast(ray, out float enter);
+            Vector3 dir = ray.GetPoint(enter) - transform.position;
             return new Vector2(dir.x, dir.z);
         }
         else
@@ -52,7 +55,7 @@ public class Player : Actor
 
     public void AddDameDealt(int dame)
     {
-        dameDealt += dame;
+        DameDealt += dame;
     }
 
     protected override float Turn(float target)

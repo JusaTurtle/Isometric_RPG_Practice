@@ -107,7 +107,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1a36b157c150c8647901dcac234bd4cc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -193,7 +193,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  gravity: 9.8
   turnSmoothTime: 0.1
   health: 10
   maxDistance: 100
@@ -203,7 +202,7 @@ MonoBehaviour:
   weapon: {fileID: 670717733}
   basic: 323
   special: 324
-  dameDealt: 0
+  mng: {fileID: 0}
 --- !u!1 &1622369485904690355
 GameObject:
   m_ObjectHideFlags: 0

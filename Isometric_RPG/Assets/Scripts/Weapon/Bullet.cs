@@ -32,6 +32,10 @@ public class Bullet : MonoBehaviour
                 owner?.AddDameDealt(dame);
                 Destroy(gameObject);
             }
+            else if(!hitinfo.collider.CompareTag(transform.root.tag))
+            {
+                Destroy(gameObject);
+            }
         }
     }
 

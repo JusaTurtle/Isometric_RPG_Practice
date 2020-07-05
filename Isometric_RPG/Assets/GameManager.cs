@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,7 +18,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         if (player != null)
-            score = player.dameDealt * baseScore;
+            score = player.DameDealt * baseScore;
         if (scoreText != null)
             scoreText.text = score.ToString();
     }
@@ -32,25 +29,6 @@ public class GameManager : MonoBehaviour
         scoreText?.gameObject.SetActive(false);
         if (gameOverScoreText != null)
             gameOverScoreText.text = score.ToString();
-    }
-
-    public void ReloadScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
-    public void GotoMenu()
-    {
-        SceneManager.LoadScene(0);
-    }
-
-    public void NextScene()
-    {
-        SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex + 1) % SceneManager.sceneCountInBuildSettings);
-    }
-
-    public void Exit()
-    {
-        Application.Quit();
+        Time.timeScale = 0f;
     }
 }
