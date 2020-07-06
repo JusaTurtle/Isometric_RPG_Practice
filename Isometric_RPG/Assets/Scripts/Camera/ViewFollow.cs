@@ -20,7 +20,7 @@ public class ViewFollow : MonoBehaviour
             prevWall = hitInfo.collider.GetComponent<MeshRenderer>();
             prevWall.enabled = false;
         }
-        else
+        else if (prevWall)
         {
             prevWall.enabled = true;
         }

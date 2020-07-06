@@ -11,7 +11,7 @@ public class Enemy : Actor
 
     public override void Die()
     {
-        Destroy(gameObject);
+        Debug.Log("DEAD");
     }
 
     public override Vector2 GetMoveDir()

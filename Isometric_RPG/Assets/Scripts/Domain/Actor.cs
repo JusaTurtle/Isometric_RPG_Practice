@@ -2,20 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Actor : MonoBehaviour, Damageable
+public abstract class Actor
 {
     public float speed;
     public float turnSmoothTime;
     public int health;
+    public CharacterController controller;
+    public Transform transform;
     private float fallSpeed;
-    private CharacterController controller;
     private float faceAngle;
     private float turnSmoothVelocity;
-
-    private void Awake()
-    {
-        controller = GetComponent<CharacterController>();
-    }
 
     public void Update()
     {
@@ -55,18 +51,6 @@ public abstract class Actor : MonoBehaviour, Damageable
     private Vector3 CalculateOnGroundVelocity(Vector2 inputDir)
     {
         return ((inputDir.x * Vector3.right) + (inputDir.y * Vector3.forward)) * speed;
-    }
-
-    public void TakeDame(int dame)
-    {
-        if (health - dame <= 0)
-        {
-            Die();
-        }
-        else
-        {
-            health -= dame;
-        }
     }
 
     protected abstract Vector2 GetRotDir();

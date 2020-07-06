@@ -136,7 +136,7 @@ GameObject:
   m_Component:
   - component: {fileID: 623576203562732857}
   - component: {fileID: 1028523797805732198}
-  - component: {fileID: 7508015297601964952}
+  - component: {fileID: 6012767566671396172}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -178,7 +178,7 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &7508015297601964952
+--- !u!114 &6012767566671396172
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -187,12 +187,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7437645053913192575}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e1c4fafc9f42b740b70a0a5e20ce616, type: 3}
+  m_Script: {fileID: 11500000, guid: f37201200c9a22746be2dc8287b35ad6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  gravity: 9.8
-  turnSmoothTime: 0.1
-  health: 3
   weapon: {fileID: 82776199234171341}
   sqrAttackRange: 49
+  speed: 3
+  turnSmoothTime: 0.1
+  health: 3
+  controller: {fileID: 1028523797805732198}
+  transform: {fileID: 623576203562732857}

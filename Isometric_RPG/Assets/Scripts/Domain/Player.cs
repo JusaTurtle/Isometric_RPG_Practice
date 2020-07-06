@@ -5,31 +5,22 @@ using UnityEngine;
 
 public class Player : Actor
 {
-    public float maxDistance;
     public LayerMask whatIsGround;
-    private Camera cam;
-    public Gun weapon;
     public KeyCode basic;
-    public KeyCode special;
-    private int dameDealt;
     public GameManager mng;
+    public Camera cam;
+    public Gun weapon;
+    private int dameDealt;
 
     public int DameDealt { get => dameDealt; set => dameDealt = value; }
 
-    private void Start()
-    {
-        cam = Camera.main;
-        weapon.SetOwner(this);
-    }
-
-    private void Update() {
+    public void Update() {
         base.Update();
         weapon.Attack(GetAction());
     }
 
     public override Vector2 GetMoveDir()
     {
-        // if (Input.GetMouseButton(0) || Input.GetMouseButton(1)) return Vector2.zero;
         return new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
     }
 
@@ -67,7 +58,6 @@ public class Player : Actor
     private char GetAction()
     {
         if (Input.GetKey(basic)) return 'b';
-        if (Input.GetKey(special)) return 's';
         return ' ';
     }
 }

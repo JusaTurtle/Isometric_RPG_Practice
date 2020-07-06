@@ -3,7 +3,7 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public Player player;
+    public PlayerPresenter player;
     public int baseScore;
     private int score;
     public TextMeshProUGUI scoreText;
@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         if (player != null)
-            score = player.DameDealt * baseScore;
+            score = player.GetDameDealt() * baseScore;
         if (scoreText != null)
             scoreText.text = score.ToString();
     }
