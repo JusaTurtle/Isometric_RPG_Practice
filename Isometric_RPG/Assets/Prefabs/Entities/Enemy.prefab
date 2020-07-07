@@ -136,7 +136,7 @@ GameObject:
   m_Component:
   - component: {fileID: 623576203562732857}
   - component: {fileID: 1028523797805732198}
-  - component: {fileID: 6012767566671396172}
+  - component: {fileID: 3780373744044271669}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -178,7 +178,7 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &6012767566671396172
+--- !u!114 &3780373744044271669
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -187,7 +187,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7437645053913192575}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f37201200c9a22746be2dc8287b35ad6, type: 3}
+  m_Script: {fileID: 11500000, guid: 78047430584303e43ae4eb0721bf6b38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 82776199234171341}
@@ -195,5 +195,3 @@ MonoBehaviour:
   speed: 3
   turnSmoothTime: 0.1
   health: 3
-  controller: {fileID: 1028523797805732198}
-  transform: {fileID: 623576203562732857}

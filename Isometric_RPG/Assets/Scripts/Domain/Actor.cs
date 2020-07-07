@@ -7,30 +7,29 @@ public abstract class Actor
     public float speed;
     public float turnSmoothTime;
     public int health;
-    public CharacterController controller;
-    public Transform transform;
+    public Movable mover;
+    public Transformable transformer;
     private float fallSpeed;
-    private float faceAngle;
     private float turnSmoothVelocity;
 
     public void Update()
     {
         Vector2 inputDir = GetMoveDir();
-        fallSpeed = controller.isGrounded ? 0 : fallSpeed - (Physics.gravity.y * Time.deltaTime);
-        controller.Move(GetVelocity(inputDir, fallSpeed) * Time.deltaTime);
+        fallSpeed = mover.IsGrounded ? 0 : fallSpeed - (Physics.gravity.y * Time.deltaTime);
+        mover.Move(GetVelocity(inputDir, fallSpeed) * Time.deltaTime);
 
         Vector2 inputRot = GetRotDir();
         if (inputRot != Vector2.zero)
         {
             float target = CalculateFaceAngle(inputRot);
-            faceAngle = Turn(target);
-            transform.eulerAngles = new Vector3(0, faceAngle, 0);
+            Turn(target);
         }
     }
 
-    protected virtual float Turn(float target)
+    protected virtual void Turn(float target)
     {
-        return Mathf.SmoothDampAngle(transform.eulerAngles.y, target, ref turnSmoothVelocity, turnSmoothTime);
+        float faceAngle = Mathf.SmoothDampAngle(transformer.GetRotDeg(), target, ref turnSmoothVelocity, turnSmoothTime);
+        transformer.RotateTo(faceAngle);
     }
 
     private float CalculateFaceAngle(Vector2 inputRot)

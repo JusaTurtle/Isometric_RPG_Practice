@@ -147,11 +147,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 79139364}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 015670b6f0c6c16438a32fd82afa6f9e, type: 3}
+  m_Script: {fileID: 11500000, guid: 8511324e267bdb647a4ecb9b052d7bdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 6012767566671396172, guid: 60dc954da479add49aa28773935512a5, type: 3}
+  - {fileID: 3780373744044271669, guid: 60dc954da479add49aa28773935512a5, type: 3}
   innerRange: 10
   outterRange: 20
   delay: 1
@@ -301,18 +301,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 112287089}
   m_CullTransparentMesh: 0
---- !u!114 &168364674 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2596090846440565002, guid: 07d6773a7a875894db2a8cb07ddb86c3,
-    type: 3}
-  m_PrefabInstance: {fileID: 1622369485907440250}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49fa1fed370381c44bca3aaad5f8e9c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!143 &168364675 stripped
 CharacterController:
   m_CorrespondingSourceObject: {fileID: 1622369485664538127, guid: 07d6773a7a875894db2a8cb07ddb86c3,
@@ -592,7 +580,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 315783093}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.673643, y: -173.84117, z: 66.77027}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -607,10 +595,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 315783093}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00b68571d02cbe544a7617f5757c893b, type: 3}
+  m_Script: {fileID: 11500000, guid: 095cbdbf75bfd1b46943682bfa764f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 168364674}
+  player: {fileID: 1933062473}
   baseScore: 2
   scoreText: {fileID: 304575570}
   gameOverScoreText: {fileID: 1889026564}
@@ -1333,7 +1321,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1084507052}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2eef0580f974fc6418c22c7f63e96243, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c1df6a9b183a0b459248a81cd4469e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1434197822
@@ -2108,6 +2096,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1889026562}
   m_CullTransparentMesh: 0
+--- !u!114 &1933062473 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6106243112928590656, guid: 07d6773a7a875894db2a8cb07ddb86c3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1622369485907440250}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16d5533f7e7e04a4a83401ded971b8e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1622369485907440250
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2174,7 +2174,7 @@ PrefabInstance:
         type: 3}
       propertyPath: mng
       value: 
-      objectReference: {fileID: 315783095}
+      objectReference: {fileID: 0}
     - target: {fileID: 1622369485664538126, guid: 07d6773a7a875894db2a8cb07ddb86c3,
         type: 3}
       propertyPath: m_Name
@@ -2184,12 +2184,17 @@ PrefabInstance:
         type: 3}
       propertyPath: mng
       value: 
-      objectReference: {fileID: 315783095}
+      objectReference: {fileID: 0}
     - target: {fileID: 2596090846440565002, guid: 07d6773a7a875894db2a8cb07ddb86c3,
         type: 3}
       propertyPath: controller
       value: 
       objectReference: {fileID: 168364675}
+    - target: {fileID: 6106243112928590656, guid: 07d6773a7a875894db2a8cb07ddb86c3,
+        type: 3}
+      propertyPath: mng
+      value: 
+      objectReference: {fileID: 315783095}
     m_RemovedComponents:
     - {fileID: 1622369485664538125, guid: 07d6773a7a875894db2a8cb07ddb86c3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 07d6773a7a875894db2a8cb07ddb86c3, type: 3}

@@ -16,9 +16,10 @@ public class Enemy : Actor
 
     public override Vector2 GetMoveDir()
     {
-        if(target != null)
+        if (target != null)
         {
-            Vector2 deltaPos = new Vector2(target.transform.position.x - transform.position.x, target.transform.position.z - transform.position.z);
+            Vector2 deltaPos = new Vector2(target.transform.position.x - transformer.GetPos().x,
+                                            target.transform.position.z - transformer.GetPos().z);
             if (deltaPos.sqrMagnitude >= sqrAttackRange)
             {
                 return deltaPos.normalized;

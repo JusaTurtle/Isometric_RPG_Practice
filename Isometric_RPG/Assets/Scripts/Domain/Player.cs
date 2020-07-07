@@ -5,16 +5,16 @@ using UnityEngine;
 
 public class Player : Actor
 {
-    public LayerMask whatIsGround;
+    public int whatIsGround;
     public KeyCode basic;
-    public GameManager mng;
     public Camera cam;
-    public Gun weapon;
+    private Gun weapon;
     private int dameDealt;
 
     public int DameDealt { get => dameDealt; set => dameDealt = value; }
 
-    public void Update() {
+    public void Update()
+    {
         base.Update();
         weapon.Attack(GetAction());
     }
@@ -26,16 +26,16 @@ public class Player : Actor
 
     public override void Die()
     {
-        mng.GameOver();
+        
     }
 
     protected override Vector2 GetRotDir()
     {
-        if (Input.GetMouseButton(0) || Input.GetMouseButton(1))
+        if (Input.GetKey(basic))
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            new Plane(Vector3.up, transform.position).Raycast(ray, out float enter);
-            Vector3 dir = ray.GetPoint(enter) - transform.position;
+            new Plane(Vector3.up, transformer.GetPos()).Raycast(ray, out float enter);
+            Vector3 dir = ray.GetPoint(enter) - transformer.GetPos();
             return new Vector2(dir.x, dir.z);
         }
         else
@@ -49,15 +49,21 @@ public class Player : Actor
         DameDealt += dame;
     }
 
-    protected override float Turn(float target)
+    protected override void Turn(float target)
     {
-        if (Input.GetMouseButton(0) || Input.GetMouseButton(1)) return target;
-        else return base.Turn(target);
+        if (Input.GetKey(basic)) transformer.RotateTo(target);
+        else base.Turn(target);
     }
 
     private char GetAction()
     {
         if (Input.GetKey(basic)) return 'b';
         return ' ';
+    }
+
+    public void Equip(Gun weapon)
+    {
+        this.weapon = weapon;
+        this.weapon.SetOwner(this);
     }
 }

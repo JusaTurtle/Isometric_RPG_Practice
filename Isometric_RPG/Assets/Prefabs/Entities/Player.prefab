@@ -138,7 +138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1622369485664538124}
   - component: {fileID: 1622369485664538127}
-  - component: {fileID: 2596090846440565002}
+  - component: {fileID: 6106243112928590656}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -180,7 +180,7 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &2596090846440565002
+--- !u!114 &6106243112928590656
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -189,20 +189,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1622369485664538126}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49fa1fed370381c44bca3aaad5f8e9c8, type: 3}
+  m_Script: {fileID: 11500000, guid: 16d5533f7e7e04a4a83401ded971b8e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
   turnSmoothTime: 0.1
   health: 10
-  maxDistance: 0
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
   basic: 323
-  special: 324
   mng: {fileID: 0}
-  controller: {fileID: 1622369485664538127}
   weapon: {fileID: 670717733}
 --- !u!1 &1622369485904690355
 GameObject:

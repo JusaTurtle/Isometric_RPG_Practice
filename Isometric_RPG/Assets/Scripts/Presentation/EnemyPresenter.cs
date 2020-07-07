@@ -19,8 +19,8 @@ public class EnemyPresenter : MonoBehaviour, Damageable
             speed = speed,
             turnSmoothTime = turnSmoothTime,
             health = health,
-            controller = GetComponent<CharacterController>(),
-            transform = transform,
+            mover = new MoveByController(GetComponent<CharacterController>()),
+            transformer = new DefaultTransform(transform),
         };
 
         enemy.SetTarget(GameObject.FindGameObjectWithTag("Player").transform);

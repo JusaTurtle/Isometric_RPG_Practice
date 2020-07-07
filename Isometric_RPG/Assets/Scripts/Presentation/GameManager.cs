@@ -5,22 +5,19 @@ public class GameManager : MonoBehaviour
 {
     public PlayerPresenter player;
     public int baseScore;
-    private int score;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI gameOverScoreText;
     public GameObject gameOver;
+    private int score;
 
     private void Start()
     {
         gameOver.SetActive(false);
     }
 
-    private void Update()
-    {
-        if (player != null)
-            score = player.GetDameDealt() * baseScore;
-        if (scoreText != null)
-            scoreText.text = score.ToString();
+    private void Update() {
+        score = player.GetDameDealt() * baseScore;
+        scoreText.text = score.ToString();
     }
 
     public void GameOver()
