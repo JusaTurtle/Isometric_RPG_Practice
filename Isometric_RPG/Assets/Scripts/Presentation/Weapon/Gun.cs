@@ -11,7 +11,7 @@ public class Gun : MonoBehaviour
     private float attackTimer;
     private float delayTimer;
     private Player owner;
-
+    
     private void Update() {
         Tick();
     }

@@ -566,7 +566,7 @@ GameObject:
   - component: {fileID: 315783094}
   - component: {fileID: 315783095}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: ScoreDisplayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -595,14 +595,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 315783093}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 095cbdbf75bfd1b46943682bfa764f01, type: 3}
+  m_Script: {fileID: 11500000, guid: 5afd2872e435f014e994a2a09ca359c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1933062473}
+  scoreText:
+  - {fileID: 304575570}
+  - {fileID: 1889026564}
   baseScore: 2
-  scoreText: {fileID: 304575570}
-  gameOverScoreText: {fileID: 1889026564}
-  gameOver: {fileID: 1460080619}
+  gameOverScreen: {fileID: 1460080619}
+  player: {fileID: 1933062473}
 --- !u!1 &338305857
 GameObject:
   m_ObjectHideFlags: 0
@@ -2193,6 +2194,11 @@ PrefabInstance:
     - target: {fileID: 6106243112928590656, guid: 07d6773a7a875894db2a8cb07ddb86c3,
         type: 3}
       propertyPath: mng
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106243112928590656, guid: 07d6773a7a875894db2a8cb07ddb86c3,
+        type: 3}
+      propertyPath: scoreDisplayer
       value: 
       objectReference: {fileID: 315783095}
     m_RemovedComponents:

@@ -29,10 +29,11 @@ public class Bullet : MonoBehaviour
             if (damageable != null && !hitinfo.collider.CompareTag(transform.root.tag))
             {
                 damageable.TakeDame(dame);
-                owner?.AddDameDealt(dame);
+                if (owner != null)
+                    owner.DameDealt += dame;
                 Destroy(gameObject);
             }
-            else if(!hitinfo.collider.CompareTag(transform.root.tag))
+            else if (!hitinfo.collider.CompareTag(transform.root.tag))
             {
                 Destroy(gameObject);
             }

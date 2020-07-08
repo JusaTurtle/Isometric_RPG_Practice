@@ -12,15 +12,17 @@ public class PlayerPresenter : MonoBehaviour, Damageable
     public Movable controller;
     public Gun weapon;
     private Player player;
-    public GameManager mng;
+    public ScoreDisplayer scoreDisplayer;
+
+    public Player Player { get => player; }
 
     public void TakeDame(int dame)
     {
         health -= dame;
         if(health <= 0)
         {
-            mng.GameOver();
-            player.Die();
+            scoreDisplayer.GameOver();
+            Player.Die();
         }
     }
 
@@ -35,18 +37,14 @@ public class PlayerPresenter : MonoBehaviour, Damageable
             basic = basic,
             mover = new MoveByController(GetComponent<CharacterController>()),
             transformer = new DefaultTransform(transform),
-            cam = Camera.main
+            cam = Camera.main,
+            sm = scoreDisplayer.Manager
         };
-        player.Equip(weapon);
+        Player.Equip(weapon);
     }
 
     private void Update()
     {
-        player.Update();
-    }
-
-    public int GetDameDealt()
-    {
-        return player.DameDealt;
+        Player.Update();
     }
 }

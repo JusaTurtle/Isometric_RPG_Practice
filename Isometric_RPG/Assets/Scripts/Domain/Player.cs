@@ -3,15 +3,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class Player : Actor
 {
     public int whatIsGround;
     public KeyCode basic;
     public Camera cam;
+    public ScoreManager sm;
     private Gun weapon;
     private int dameDealt;
 
-    public int DameDealt { get => dameDealt; set => dameDealt = value; }
+    public int DameDealt
+    {
+        get => dameDealt; set
+        {
+            dameDealt = value;
+            sm.UpdateScore(value);
+        }
+    }
 
     public void Update()
     {
@@ -22,11 +31,6 @@ public class Player : Actor
     public override Vector2 GetMoveDir()
     {
         return new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-    }
-
-    public override void Die()
-    {
-        
     }
 
     protected override Vector2 GetRotDir()
@@ -42,11 +46,6 @@ public class Player : Actor
         {
             return GetMoveDir();
         }
-    }
-
-    public void AddDameDealt(int dame)
-    {
-        DameDealt += dame;
     }
 
     protected override void Turn(float target)
@@ -65,5 +64,10 @@ public class Player : Actor
     {
         this.weapon = weapon;
         this.weapon.SetOwner(this);
+    }
+
+    public override void Die()
+    {
+        Debug.Log("DIE");
     }
 }
